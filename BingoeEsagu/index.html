@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Policial Nacional</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <div class="main-container">
+        <header>
+            <div class="logos-container">
+                <div class="title-container">
+                    <h1>BINGO POLICIAL NACIONAL</h1>
+                    <div class="subtitle">"Dios y Patria"</div>
+                </div>
+                <img src="img/EscudoPolicíaNacional.png" alt="Bandera Colombia" class="header-logo" >
+            </div>
+        </header>
+
+        <div class="game-container">
+            <div class="control-panel">
+                <div class="stats-panel">
+                    <div class="stat-box">
+                        <div class="stat-label">JUGADORES</div>
+                        <div class="stat-value" id="players-count">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">NÚMEROS</div>
+                        <div class="stat-value" id="called-count">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">PATRONES</div>
+                        <div class="stat-value" id="winners-count">0</div>
+                    </div>
+                </div>
+
+                <div class="settings-panel">
+                    <div class="form-group">
+                        <label for="player-count">Jugadores:</label>
+                        <input type="number" id="player-count" min="1" max="1000" value="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="win-condition">Modo de Juego:</label>
+                        <select id="win-condition">
+                            <option value="B">Columna B</option>
+                            <option value="I">Columna I</option>
+                            <option value="N">Columna N</option>
+                            <option value="G">Columna G</option>
+                            <option value="O">Columna O</option>
+                            <option value="letter-B">Letra B</option>
+                            <option value="letter-I">Letra I</option>
+                            <option value="letter-N">Letra N</option>
+                            <option value="letter-G">Letra G</option>
+                            <option value="letter-O">Letra O</option>
+                            <option value="corners">4 Esquinas</option>
+                            <option value="full">Cartón Lleno</option>
+                        </select>
+                    </div>
+
+                    <div class="button-group">
+                        <button id="start-game" class="btn-primary">Iniciar Juego</button>
+                        <button id="call-number" class="btn-action" disabled>Llamar Número</button>
+                        <button id="reset-game" class="btn-secondary" disabled>Reiniciar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-board">
+                <div class="letter-pattern-display" id="letter-pattern-display">
+                    <h3>Patrón de Letra: <span id="current-letter-name"></span></h3>
+                    <div class="letter-grid" id="letter-grid"></div>
+                </div>
+
+                <div class="current-number-container" id="current-number-container">
+                    <div class="current-number" id="current-number">-</div>
+                </div>
+
+                <div class="numbers-history">
+                    <div class="history-header">
+                        <div>B (1-15)</div>
+                        <div>I (16-30)</div>
+                        <div>N (31-45)</div>
+                        <div>G (46-60)</div>
+                        <div>O (61-75)</div>
+                    </div>
+                    <div class="history-list" id="history-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="winner-modal">
+        <div class="modal-content">
+            <h2>¡PATRÓN COMPLETADO!</h2>
+            <div id="winner-message"></div>
+            <button id="close-modal" class="btn-primary">Continuar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
